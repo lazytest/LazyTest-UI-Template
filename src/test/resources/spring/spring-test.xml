@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <context:annotation-config/>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <context:property-placeholder location="classpath*:/conf/*.properties"/>
+    <context:component-scan base-package="*" />
+
+    <bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${db.mysql.driver}"/>
+        <property name="url" value="${db.mysql.url}"/>
+        <property name="username" value="${db.mysql.username}"/>
+        <property name="password" value="${db.mysql.password}"/>
+        <property name="initialSize" value="1"/>
+        <property name="maxActive" value="5"/>
+        <property name="maxWait" value="60000"/>
+        <property name="poolPreparedStatements" value="true"/>
+    </bean>
+    <bean id="oracleDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${db.oracle.driver}"/>
+        <property name="url" value="${db.oracle.url}"/>
+        <property name="username" value="${db.oracle.username}"/>
+        <property name="password" value="${db.oracle.password}"/>
+        <property name="initialSize" value="1"/>
+        <property name="maxActive" value="5"/>
+        <property name="maxWait" value="60000"/>
+        <property name="poolPreparedStatements" value="true"/>
+    </bean>
+
+    <bean id="mysqlDBUtil" class="lazy.test.tools.util.DBUtil">
+        <constructor-arg ref="mysqlDataSource"></constructor-arg>
+    </bean>
+
+    <bean id="oracleDBUtil" class="lazy.test.tools.util.DBUtil">
+        <constructor-arg ref="oracleDataSource"></constructor-arg>
+    </bean>
+
+    <bean id="mysqlCsvDataProvider" class="lazy.test.tools.provider.csv.csvImpl.CsvDataProviderImpl">
+        <constructor-arg ref="mysqlDataSource"></constructor-arg>
+    </bean>
+
+    <bean id="oracleCsvDataProvider" class="lazy.test.tools.provider.csv.csvImpl.CsvDataProviderImpl">
+        <constructor-arg ref="oracleDataSource"></constructor-arg>
+    </bean>
+
+</beans>
