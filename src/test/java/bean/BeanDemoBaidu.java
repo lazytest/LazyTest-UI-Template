@@ -3,8 +3,8 @@ package bean;
 
 import lazy.test.ui.annotations.*;
 import lazy.test.ui.beans.PageBean;
+import lazy.test.ui.browser.BrowseEmulator;
 import lazy.test.ui.controls.*;
-import lazy.test.ui.browser.BrowserEmulator;
 
 public class BeanDemoBaidu extends PageBean {
 
@@ -18,6 +18,6 @@ public class BeanDemoBaidu extends PageBean {
     @Description(description="百度一下")
     public Click su;
 
-    public BeanDemoBaidu(BrowserEmulator be) { super(be); }
+    public BeanDemoBaidu(BrowseEmulator be) { super(be); }
 
 }

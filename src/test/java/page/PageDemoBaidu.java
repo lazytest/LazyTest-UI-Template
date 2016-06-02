@@ -1,12 +1,12 @@
 package page;
 
 import bean.BeanDemoBaidu;
-import lazy.test.ui.browser.BrowserEmulator;
+import lazy.test.ui.browser.BrowseEmulator;
 
 public class PageDemoBaidu {
 private BeanDemoBaidu beanDemoBaidu;
 	
-	public PageDemoBaidu(BrowserEmulator be){
+	public PageDemoBaidu(BrowseEmulator be){
 		beanDemoBaidu = new BeanDemoBaidu(be);
 	}
 	public void  search(){
