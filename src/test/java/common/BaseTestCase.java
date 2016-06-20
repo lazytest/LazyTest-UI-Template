@@ -1,6 +1,6 @@
 package common;
 
-import lazy.test.ui.browser.BrowseEmulator;
+import lazy.test.ui.browser.BrowserEmulator;
 import lazy.test.ui.browser.BrowserEmulatorImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeClass;
 public class BaseTestCase extends AbstractTestNGSpringContextTests {
     private static final Logger logger = LoggerFactory.getLogger(BaseTestCase.class);
 
-    protected static BrowseEmulator be;
+    protected static BrowserEmulator be;
 
     @BeforeClass()
     public void doBeforeClassBase() {
