@@ -17,23 +17,37 @@
 
     <repositories>
         <repository>
-            <id>lazytest</id>
-            <url>https://raw.githubusercontent.com/lazytest/mvn-repo/master/repository</url>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2</url>
         </repository>
-    </repositories>
+        <repository>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/cryanimal/lazy-test-tools</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+        <repository>
+          <id>ui</id>
+          <url>https://maven.pkg.github.com/lazytest/LazyTest-UI-Tools</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
 
     <dependencies>
 
         <dependency>
             <groupId>lazy.test</groupId>
             <artifactId>lazy-test-tools</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </dependency>
 
         <dependency>
             <groupId>lazy.test</groupId>
             <artifactId>lazy-test-ui-tools</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.3</version>
         </dependency>
 
         <dependency>
@@ -42,22 +56,11 @@
             <version>5.1.29</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.2.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>sqlserver-jdbc</artifactId>
-            <version>4.0</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>3.2.4.RELEASE</version>
+            <version>5.2.8.RELEASE</version>
             <exclusions>
                 <exclusion>
                     <artifactId>commons-logging</artifactId>
@@ -69,37 +72,53 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>3.2.4.RELEASE</version>
+            <version>5.2.8.RELEASE</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>3.2.4.RELEASE</version>
+            <version>5.2.8.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>5.2.8.RELEASE</version>
+        </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-aop</artifactId>
+        <version>5.2.8.RELEASE</version>
+    </dependency>
 
+    <dependency>
+        <groupId>org.dbunit</groupId>
+        <artifactId>dbunit</artifactId>
+        <version>2.7.1</version>
+        <scope>test</scope>
+    </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>3.2.4.RELEASE</version>
+            <version>5.2.8.RELEASE</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jms</artifactId>
-            <version>3.2.4.RELEASE</version>
+            <version>5.2.8.RELEASE</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>3.2.4.RELEASE</version>
+            <version>5.2.8.RELEASE</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>3.2.4.RELEASE</version>
+            <version>5.2.8.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -181,8 +200,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
